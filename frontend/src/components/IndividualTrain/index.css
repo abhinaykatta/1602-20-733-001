@@ -1,0 +1,33 @@
+.train{
+    height: 350px;
+    width: 300px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin: 15px;
+    cursor: pointer;
+    background-color: white;
+    font-style: "Roboto";
+    transition: background-color 2s ease-out;
+}
+
+.trainName{
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 24px;
+}
+.category{
+    display: flex;
+    flex-direction: row;
+}
+
+.categoryitem{
+    margin : 10px;
+    border-radius: 10px;
+    border-style:solid;
+    border-width: 1.5px;
+    width: 200px;
+    padding-left: 20px;
+}

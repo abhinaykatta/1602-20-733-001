@@ -2,9 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const router = require("./routes/backtrain");
+const cors = require("cors");
 dotenv.config();
 
 const app = express();
+app.use(cors);
 
 const PORT = 5000;
 

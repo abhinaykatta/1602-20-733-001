@@ -1,7 +1,8 @@
 const express = require("express");
-const { getAllTrains } = require("../controllers/traincontrollers");
+const { getAllTrains, getATrain } = require("../controllers/traincontrollers");
 const router = express.Router();
 
-router.get("/trains/train", getAllTrains);
+router.get("/train/trains", getAllTrains);
+router.get("/train/trains/:id", getATrain);
 
 module.exports = router;
