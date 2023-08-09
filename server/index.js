@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const router = require("./routes/backtrain");
+const { errorHandler, notFound } = require("./middleware/errorHandler");
 const cors = require("cors");
 dotenv.config();
 
@@ -16,6 +17,8 @@ const PORT = 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(errorHandler);
+app.use(notFound);
 app.use(router);
 
 app.listen(PORT, console.log(`Server is Listening on PORT ${PORT}`));

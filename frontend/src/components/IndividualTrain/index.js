@@ -4,30 +4,31 @@ import "./index.css";
 import { FaRupeeSign } from "react-icons/fa";
 import { MdEventSeat } from "react-icons/md";
 import { BsFillTrainFrontFill } from "react-icons/bs";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const object = {
-  trainName: "Jodhpur Exp",
-  trainNumber: 2344,
-  departureTime: {
-    Hours: 11,
-    Minutes: 0,
-    Seconds: 0,
-  },
-  seatsAvailable: {
-    sleeper: 33,
-    AC: 13,
-  },
-  price: {
-    sleeper: 713,
-    AC: 824,
-  },
-  delayedBy: 4,
-};
+// const object = {
+//   trainName: "Jodhpur Exp",
+//   trainNumber: 2344,
+//   departureTime: {
+//     Hours: 11,
+//     Minutes: 0,
+//     Seconds: 0,
+//   },
+//   seatsAvailable: {
+//     sleeper: 33,
+//     AC: 13,
+//   },
+//   price: {
+//     sleeper: 713,
+//     AC: 824,
+//   },
+//   delayedBy: 4,
+// };
 
 const IndividualTrain = (props) => {
   const { id } = useParams();
   //fetch the individual train details.
+  const [traindata, setTraindata] = useState({});
   const getData = async () => {
     const url = `http://localhost:5000/train/trains/${id}`;
     const options = {
@@ -35,6 +36,8 @@ const IndividualTrain = (props) => {
     };
     const response = await fetch(url, options);
     const data = await response.json();
+
+    setTraindata(url.data);
 
     console.log(data);
   };
@@ -49,7 +52,7 @@ const IndividualTrain = (props) => {
     seatsAvailable,
     price,
     delayedBy,
-  } = object;
+  } = traindata;
   return (
     <div className="train">
       <h1 className="trainName">

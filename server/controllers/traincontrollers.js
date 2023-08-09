@@ -37,9 +37,12 @@ const getAllTrains = asyncHandler(async (req, res) => {
 
     console.log(trainsData);
 
-    // trainsData = trainsData.sort((a,b)=>{
-
-    // })
+    // trainsData = trainsData.sort((a, b) => {
+    //   if (a.price.sleeper > b.price.sleeper) return 1;
+    //   else {
+    //     if (a.price.AC > b.price.AC) return 1;
+    //   }
+    // });
 
     res.send(trainsData);
   } catch (err) {
